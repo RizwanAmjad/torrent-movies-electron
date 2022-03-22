@@ -4,32 +4,53 @@
     <meta charset="UTF-8" />
     <title>Torrent Movies</title>
     <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <meta
       http-equiv="Content-Security-Policy"
       content="script-src 'self' 'unsafe-inline'"
     />
     <script defer src="./render.js"></script>
   </head>
-  <body>
-    <div>
-      <div id="now-playing">
-        <div id="movie-text">Movie Name</div>
-        <div id="status-text">Status</div>
-        <div id="speed-text">Speed</div>
-        <div id="progress-text">Progress</div>
-        <div class="control">
-          <button id="play-button">Play</button>
-          <button id="pause-button">Pause</button>
+  <body class="container">
+    <div class="container">
+      <div id="now-playing" class="row">
+        <div class="control col-md-3 row">
+          <div class="row m-2">
+            <button id="play-button" class="btn btn-primary">Play</button>
+          </div>
+          <div class="row m-2">
+            <button id="pause-button" class="btn btn-warning">Pause</button>
+          </div>
+        </div>
+        <div class="col m-2">
+          <div id="movie-text">Movie Name</div>
+          <div id="status-text">Status</div>
+          <div id="speed-text">Speed</div>
+          <div id="progress-text">Progress</div>
         </div>
       </div>
 
-      <form id="search-form">
-        <input type="text" name="query" placeholder="Search Movie" />
-        <button id="search-button">Search</button>
+      <form id="search-form" class="mb-2">
+        <div class="row">
+          <div class="col-md-6 col">
+            <input
+              type="text"
+              name="query"
+              class="form-control"
+              placeholder="Search Movie"
+            />
+          </div>
+          <div class="col-md-2 col-2">
+            <button id="search-button" class="btn btn-success">Search</button>
+          </div>
+        </div>
       </form>
 
       <div id="movies-container">
-        <ul id="movies-list"></ul>
+        <ul id="movies-list" class="list-group"></ul>
       </div>
     </div>
   </body>

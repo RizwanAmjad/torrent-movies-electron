@@ -43,6 +43,7 @@ function showMovies(movies) {
       movie.seeds
     } - Peers ${movie.peers} - Size ${movie.size}`;
     movieItem.title = movie.title;
+    movieItem.classList.add("list-group-item", "cursor-pointer", "p-3");
 
     movieItem.addEventListener("click", async () => {
       movieText.innerText = movie.title;

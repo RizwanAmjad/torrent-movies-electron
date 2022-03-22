@@ -44,7 +44,6 @@ function playMovie() {
   if (nowPlaying)
     nowPlaying.files.forEach(function (file) {
       // open the file in vlc
-      console.log(file);
       shell.openPath(file.path);
     });
 }
