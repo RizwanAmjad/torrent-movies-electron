@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Torrent Movies</title>
+    <link rel="stylesheet" href="index.css" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline'"
+    />
+    <script defer src="./render.js"></script>
+  </head>
+  <body>
+    <div>
+      <div id="now-playing">
+        <div id="movie-text">Movie Name</div>
+        <div id="status-text">Status</div>
+        <div id="speed-text">Speed</div>
+        <div id="progress-text">Progress</div>
+        <div class="control">
+          <button id="play-button">Play</button>
+          <button id="pause-button">Pause</button>
+        </div>
+      </div>
+
+      <form id="search-form">
+        <input type="text" name="query" placeholder="Search Movie" />
+        <button id="search-button">Search</button>
+      </form>
+
+      <div id="movies-container">
+        <ul id="movies-list"></ul>
+      </div>
+    </div>
+  </body>
+</html>
