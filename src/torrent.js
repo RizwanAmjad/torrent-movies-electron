@@ -48,8 +48,8 @@ function playMovie() {
     });
 }
 
-function stopMovie() {
-  if (nowPlaying) nowPlaying.destroy();
-}
-
-module.exports = { openMovie, playMovie, stopMovie };
+module.exports = {
+  openMovie,
+  playMovie,
+  clearDownloads,
+};

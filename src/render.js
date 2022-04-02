@@ -1,13 +1,15 @@
+const { dialog } = require("@electron/remote");
+
 const TorrentSearchApi = require("torrent-search-api");
 TorrentSearchApi.enableProvider("1337x");
 
-const { openMovie, playMovie, stopMovie } = require("./torrent");
+const { openMovie, playMovie, clearDownloads } = require("./torrent");
 
 const searchForm = document.getElementById("search-form");
 const searchButton = document.getElementById("search-button");
 
 const playButton = document.getElementById("play-button");
-const pauseButton = document.getElementById("pause-button");
+const clearDownloadsButton = document.getElementById("clear-downloads-button");
 
 const statusText = document.getElementById("status-text");
 const movieText = document.getElementById("movie-text");
@@ -15,7 +17,17 @@ const speedText = document.getElementById("speed-text");
 const progressText = document.getElementById("progress-text");
 
 playButton.addEventListener("click", playMovie);
-pauseButton.addEventListener("click", stopMovie);
+clearDownloadsButton.addEventListener("click", async () => {
+  const { response } = await dialog.showMessageBox({
+    type: "question",
+    title: "Clear Downloads?",
+    message:
+      "Are you sure to Clear downloads. Downloads will go to Trash Folder",
+    buttons: ["Yes", "No"],
+  });
+
+  if (response == 0) clearDownloads();
+});
 
 searchForm.addEventListener("submit", async function (e) {
   e.preventDefault();
